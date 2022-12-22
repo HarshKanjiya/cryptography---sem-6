@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Hubballi&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@media only screen and (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.App {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: grid;
+  place-content: center;
+
+  background-color: hsla(0, 100%, 50%, 1);
+  background-image: radial-gradient(
+      at 40% 20%,
+      hsla(28, 100%, 74%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+}
+
+.wrapper {
+  padding: 2rem 3rem;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 6px 6px 11px rgba(0, 0, 0, 0.1),
+    -6px -6px 11px rgba(255, 255, 255, 0.1);
+}
+.header {
+  font-size: 1.2rem;
+  color: #454545;
+  border-bottom: 1px solid #b6b6b6;
+  padding-bottom: 0.7rem;
+}
+
+.footer{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    margin: 0 0.5rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom:1px solid #909090 ;
+}
+button{
+    background-color: turquoise;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    color: white;
+}
+.chatMsg{
+width: 100%;
+background-color: #f5f5f5;
+border-radius: 4px;
+margin: 0.5rem 0;
+padding: 0.3rem 0.5rem;
+}
+.chatMsg-name{
+    font-size: 0.7rem;
+    color:#454545;
+}
