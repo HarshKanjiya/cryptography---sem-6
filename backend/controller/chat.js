@@ -67,48 +67,6 @@ exports.getMsg = async (req, res, next) => {
     resMsges.push({ user: baseData.user, message: resMsg });
     baseData.message = baseIncMessage;
   });
-
-  // messages.map((msg) => {
-  //   resMsges.push(msg);
-  //   dummyMsg.push(msg);
-  // });
-
-  // dummyMsg.map((dummyData, index) => {
-  //   let resMsg = "";
-  //   let resStrArr = [];
-  //   let temp;
-  //   let mainIndex = index;
-  //   let increptedMsg = dummyData.message
-
-  //   console.log('increptedMsg :>> ', increptedMsg);
-
-  // decrypter
-  //     let IncMsgArr = dummyData.message.split("");
-  //     IncMsgArr.map((char) => {
-  //       if (char === " ") {
-  //         temp = " ";
-  //       } else if (char === char.toUpperCase()) {
-  //         temp =
-  //           ((char.charCodeAt(0) - process.env.SECRET_NUM - 65 + 26) % 26) + 65;
-  //         temp = String.fromCharCode(temp);
-  //       } else if (char === char.toLowerCase()) {
-  //         temp =
-  //           ((char.charCodeAt(0) - process.env.SECRET_NUM - 97 + 26) % 26) + 97;
-  //         temp = String.fromCharCode(temp);
-  //       }
-  //       resStrArr.push(temp);
-  //     });
-  //     resMsg = resStrArr.join("");
-
-  // resMsges.map((data, index) => {
-  //   if (index === mainIndex) {
-  //     data.message = resMsg;
-  //   }
-  // });
-
-  //     dummyData.message = increptedMsg
-  // });
-
   res.status(200).json({
     success: true,
     resMsges,
