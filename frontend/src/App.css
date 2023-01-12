@@ -28,10 +28,11 @@
 .App {
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
-  display: grid;
-  place-content: center;
-
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-color: hsla(0, 100%, 50%, 1);
   background-image: radial-gradient(
       at 40% 20%,
@@ -47,6 +48,8 @@
 }
 
 .wrapper {
+  width: 32rem;
+  margin: 4rem;
   padding: 2rem 3rem;
   background-color: white;
   border-radius: 7px;
@@ -68,6 +71,7 @@
 
 input{
     margin: 0 0.5rem;
+    width: 100%;
     background-color: transparent;
     border: none;
     outline: none;
@@ -80,6 +84,11 @@ button{
     border-radius: 4px;
     padding: 0.5rem 1rem;
     color: white;
+    transition: 300ms;
+
+}
+button:hover{
+  background-color: rgb(50, 184, 170);
 }
 .chatMsg{
 width: 100%;
@@ -91,4 +100,10 @@ padding: 0.3rem 0.5rem;
 .chatMsg-name{
     font-size: 0.7rem;
     color:#454545;
+}
+
+.flex-d-end{
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
 }

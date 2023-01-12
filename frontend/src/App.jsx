@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import PlayFair from "./components/PlayFair";
 
 const init = {
   user: "",
@@ -10,6 +11,10 @@ function App() {
   const [data, setData] = useState(init);
   const [increptedMsg, setincreptedMsg] = useState("");
   const [messages, setMessages] = useState([]);
+
+  // mono lab 2
+  const [inputText, setinputText] = useState("");
+  const [monoCResText, setMonoCResText] = useState("");
 
   useEffect(() => {
     getMsg();
@@ -42,15 +47,42 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         if (res.success === true) {
-          setMessages(res.resMsges);
+          let temp = [];
+          res.resMsges.map((msg) => {
+            temp = [msg, ...temp];
+          });
+          setMessages(temp);
         }
       });
+  };
+
+  const HelperSendMonoAlphabeticFile = (event) => {
+    let reader = new FileReader();
+    reader.onload = async function (e) {
+      setinputText(e.target.result);
+      await fetch("http://localhost:2020/server/monoalphabetic/sendtext", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          text: e.target.result,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res.success === true) {
+            setMonoCResText(res.textRes);
+          }
+        });
+    };
+    reader.readAsText(event.target.files[0]);
   };
 
   return (
     <div className="App">
       <div className="wrapper">
-        <div className="header">Chat App</div>
+        <div className="header">Ceaser cipher</div>
         <div className="footer">
           <input
             placeholder="user name"
@@ -81,6 +113,16 @@ function App() {
           </p>
         </div>
       </div>
+      <div className="wrapper">
+        <div className="header">Mono Alphabetic</div>
+        <div className="footer">
+          <input type="file" onChange={HelperSendMonoAlphabeticFile} />
+        </div>
+        <p>sent Text: {inputText} </p>
+        <p>increpted Text: {monoCResText}</p>
+      </div>
+
+      <PlayFair />
     </div>
   );
 }
